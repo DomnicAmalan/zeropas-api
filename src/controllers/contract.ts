@@ -8,9 +8,9 @@ const API_KEY = process.env.API_KEY;
 class ContractController {
   public mint = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
+      console.log(req?.body)
       const { address } = req?.body
-      console.log(API_KEY)
-      const provider = new ethers.providers.JsonRpcProvider('https://goerli.infura.io/v3/8af17093dd2a4ce6b3484146455e1a2a', 'goerli')
+      const provider = new ethers.providers.AlchemyProvider('goerli', API_KEY)
       // console.log(API_KEY)
       
       const contract = require("../artifacts/contract.json");
